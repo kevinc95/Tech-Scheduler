@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kevin.techscheduler.WeatherActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F0F8FF">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4000">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:text="Current Blacksburg Weather"
+                    android:textSize="35dp"
+                    android:gravity="center"
+                    android:background="#87CEFA"/>
+
+                <ImageView
+                    android:id="@+id/conditionPic"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/common_google_signin_btn_icon_light"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="temp"
+                    android:textSize="30dp"
+                    android:gravity="center"
+                    android:background="#B0E0E6"
+                    android:id="@+id/temp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="feelsLike"
+                    android:textSize="30dp"
+                    android:gravity="center"
+                    android:background="#ADD8E6"
+                    android:id="@+id/feelsLike"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="humidity"
+                    android:textSize="30dp"
+                    android:gravity="center"
+                    android:background="#B0E0E6"
+                    android:id="@+id/hum"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="condition"
+                    android:textSize="30dp"
+                    android:gravity="center"
+                    android:background="#ADD8E6"
+                    android:id="@+id/condition"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="40dp"
+                    android:text="date"
+                    android:textSize="30dp"
+                    android:gravity="center"
+                    android:background="#87CEFA"
+                    android:id="@+id/date"/>
+
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

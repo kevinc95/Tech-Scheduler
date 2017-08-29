@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">TechScheduler</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string-array name="locations">
+        <item>Ambler Johnson Hall</item>
+        <item>Architecture Annex</item>
+        <item>Barringer Hall</item>
+        <item>Bishop-Favrao Hall</item>
+        <item>Black Box Theatre</item>
+        <item>Burchard Hall</item>
+        <item>Burke Johnson Student Center</item>
+        <item>Burruss Hall</item>
+        <item>Campbell Hall</item>
+        <item>Cassell Coliseum</item>
+        <item>Cheatham Hall</item>
+        <item>Cochrane Hall</item>
+        <item>Cowgill Hall</item>
+        <item>Dairy Science Complex</item>
+        <item>Davidson Hall</item>
+        <item>Derring Hall</item>
+        <item>Dietrick Hall</item>
+        <item>Durham Hall</item>
+        <item>Eggleston Hall</item>
+        <item>Engel Hall</item>
+        <item>Femoyer Hall</item>
+        <item>Graduate Life Center</item>
+        <item>Goodwin Hall</item>
+        <item>Hahn Hall - North Wing</item>
+        <item>Hahn Hall - South Wing</item>
+        <item>Hahn Horticulture Gardens</item>
+        <item>Hancock Hall</item>
+        <item>Harper Hall</item>
+        <item>Henderson Hall</item>
+        <item>Hillcrest Hall</item>
+        <item>Holden Hall</item>
+        <item>Hutcheson Hall</item>
+        <item>International Affairs</item>
+        <item>Johnson Hall</item>
+        <item>Lane Hall</item>
+        <item>Lane Stadium</item>
+        <item>Latham Hall</item>
+        <item>Lavery Hall</item>
+        <item>Lee Hall</item>
+        <item>Litton-Reaves Hall</item>
+        <item>Major Williams Hall</item>
+        <item>McBryde Hall</item>
+        <item>McComas Hall</item>
+        <item>Media Annex</item>
+        <item>Miles Hall</item>
+        <item>Monteith Hall</item>
+        <item>New Classroom Building</item>
+        <item>New Residence Hall</item>
+        <item>Newman Hall</item>
+        <item>Newman Library</item>
+        <item>O Shaughnessy Hall</item>
+        <item>Owens Hall</item>
+        <item>Pamplin Hall</item>
+        <item>Patton Hall</item>
+        <item>Payne Hall</item>
+        <item>Peddrew-Yates Hall</item>
+        <item>Performing Arts Building</item>
+        <item>Price Hall</item>
+        <item>Pritchard Hall</item>
+        <item>Sandy Hall</item>
+        <item>Seitz Hall</item>
+        <item>Shanks Hall</item>
+        <item>Slusher Hall</item>
+        <item>Smith Career Center</item>
+        <item>Smyth Hall</item>
+        <item>Squires Student Center</item>
+        <item>Surge Space Building</item>
+        <item>The Inn at Virginia Tech</item>
+        <item>Thomas Hall</item>
+        <item>Torgersen Hall</item>
+        <item>University Bookstore</item>
+        <item>Vawter Hall</item>
+        <item>Wallace Hall</item>
+        <item>War Memorial Chapel</item>
+        <item>War Memorial Hall</item>
+        <item>Whittlemore Hall</item>
+        <item>Williams Hall</item>
+    </string-array>
+
+</resources>
