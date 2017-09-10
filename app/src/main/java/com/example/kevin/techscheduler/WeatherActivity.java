@@ -14,6 +14,9 @@ import org.w3c.dom.Text;
 import java.io.InputStream;
 import java.net.URL;
 
+/**
+ * Activity that displays the weather forecast.
+ **/
 public class WeatherActivity extends AppCompatActivity {
 
     TextView temp;
@@ -23,6 +26,10 @@ public class WeatherActivity extends AppCompatActivity {
     ImageView conditionPic;
     TextView date;
 
+    /**
+     * On creation of this activity, initialize the textviews and imageviews
+     * based off the necessary current weather data.
+     **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +56,9 @@ public class WeatherActivity extends AppCompatActivity {
         downloaderAsyncTask.execute(forecast[8]);
     }
 
+    /**
+     * Downloader Asynctask class for downloading the image file to represent the condition of blacksburg
+     **/
     private class DownloaderAsyncTask extends AsyncTask<String, String, Bitmap> {
 
         ImageView image;
