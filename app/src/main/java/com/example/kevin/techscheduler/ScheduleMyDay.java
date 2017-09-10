@@ -19,6 +19,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Activity for the Schedule My Day screen where the user inserts their class schedule
+ */
 public class ScheduleMyDay extends AppCompatActivity implements View.OnClickListener {
 
     public static final String SCHEDULE = "schedule";
@@ -35,9 +38,17 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
     ArrayAdapter<CharSequence> adapter1;
     String locationString;
 
+    // contains the hourly forecasts from the main activity
     ArrayList<String[]> listOfHourlyForecasts;
+    
+    // will contain the user's schedule data
     ArrayList<String[]> listOfLocations;
 
+    /**
+     * On create, the button listeners for add, undo, clear, and showMap are initialized,
+     * the spinner listener for the locations/buildings are initialized, and the timepicker listeners
+     * are initialized. The locationText will list the users schedule.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +96,9 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
         endTimeSpinner.setCurrentMinute(0);
     }
 
+    /**
+     * Sorts the list of users schedule data in ascending order of user's the time the user needs to be there.
+     */
     public ArrayList<String[]> listOfLocationsChronoOrder(ArrayList<String[]> locations) {
 
         ArrayList<String[]> listOfLocationsCopy = (ArrayList<String[]>) locations.clone();
@@ -111,6 +125,9 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
         return listOfLocationsCopy;
     }
 
+    /**
+     * 
+     */
     private boolean findEndHour(String endHour) {
 
         for (int i = 0; i < listOfHourlyForecasts.size(); i++) {
@@ -125,11 +142,15 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
         return false;
     }
 
+    /**
+     * executes the button methods
+     */
     @Override
     public void onClick(View view) {
 
         if (view.getId() == addButton.getId()) {
-
+            // We add a location with a start time and end time to the locationData.
+            
             String[] locationData = new String[5];
 
             locationData[0] = locationString;
@@ -140,6 +161,8 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
 
             listOfLocations.add(locationData);
 
+            // We update the textview that displays on the screen to show the newly added 
+            // location with the textview in chronological order.
             locationText.setText("");
 
             ArrayList<String[]> listOfLocationsInOrder = listOfLocationsChronoOrder(listOfLocations);
@@ -154,6 +177,7 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
         }
         if (view.getId() == undoButton.getId()) {
 
+            // if location list is not empty, we remove the last added location from the list and update the textview 
             if (!listOfLocations.isEmpty()) {
                 listOfLocations.remove(listOfLocations.size() - 1);
 
@@ -172,6 +196,7 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
         }
         if (view.getId() == clearButton.getId()) {
 
+            // empty the list and update the textview
             if (!listOfLocations.isEmpty()) {
                 listOfLocations = new ArrayList<>();
 
