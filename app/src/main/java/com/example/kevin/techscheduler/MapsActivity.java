@@ -117,7 +117,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     Double lat = (double) (addresses.get(0).getLatitude());
                     Double lon = (double) (addresses.get(0).getLongitude());
 
-                    //Log.d("lat-long", "" + lat + "......." + lon);
                     final LatLng user = new LatLng(lat, lon);
         /*used marker for show the location */
 
@@ -126,7 +125,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             .title(location + ", Blacksburg VA")
                             .icon(BitmapDescriptorFactory
                                     .fromBitmap(resizeIcon)));
-                    // Move the camera instantly to hamburg with a zoom of 15.
+                    // Move the camera instantly to Blacksburg with a zoom of 15.
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(user, 15));
 
                     // Zoom in, animating the camera.
