@@ -3,17 +3,22 @@ package com.example.kevin.techscheduler;
 import android.graphics.Color;
 
 /**
- * Created by Kevin on 6/27/2017.
+ * A class for deciding the color of a walking path based off the weather condition.
  */
-
 public class ConditionPathColorPicker {
 
     String condition;
 
+    /**
+     * Initialize an instance of ConditionPathColorPicker.
+     */
     public ConditionPathColorPicker(String condition) {
         this.condition = condition;
     }
 
+    /**
+     * Determines the color based off condition string.
+     */
     public int getPathColor() {
 
         int color = Color.BLACK;
