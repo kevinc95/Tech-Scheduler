@@ -126,7 +126,9 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
     }
 
     /**
-     * 
+     * Check to see if the ending hour time of a location goes out of bounds
+     * of our current day. If true, it exists and therefore doesn't 
+     * go out of bounds. False otherwise.
      */
     private boolean findEndHour(String endHour) {
 
@@ -143,7 +145,7 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
     }
 
     /**
-     * executes the button methods
+     * executes the method for the button pressed
      */
     @Override
     public void onClick(View view) {
@@ -205,8 +207,11 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
         }
         if (view.getId() == showMap.getId()) {
 
+            // list for in case any times go out of range of the current day
             ArrayList<String[]> outOfRangeLocations = new ArrayList<>();
 
+            // checks all location's ending times to see if they go out of bounds 
+            // of current day
             boolean exists = true;
             for (int i = 0; i < listOfLocations.size(); i++) {
                 String[] location = listOfLocations.get(i);
@@ -220,6 +225,10 @@ public class ScheduleMyDay extends AppCompatActivity implements View.OnClickList
                 }
             }
 
+            // if exists is true, all locations are within the bounds of the current day
+            // so go to map activity
+            // if exists is false, we run an error message listing the locations that are out
+            // of bounds of the current day
             if (exists) {
                 Intent intent = new Intent(this, MapsActivity.class);
 
