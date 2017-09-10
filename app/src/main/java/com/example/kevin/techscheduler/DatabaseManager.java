@@ -9,29 +9,44 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Kevin on 6/22/2017.
+ * A class for managing our SQLiteDatabase of weather data.
  */
-
 public class DatabaseManager {
     DBOpenHelper dbOpenHelper;
     SQLiteDatabase database;
 
+    /**
+     * Create an instance of DatabaseManager.
+     */
     public DatabaseManager(Context context) {
         dbOpenHelper = new DBOpenHelper(context);
     }
 
+    /**
+     * Open the database.
+     **/
     public void open() {
         database = dbOpenHelper.getWritableDatabase();
     }
 
+    /**
+     * Close the database.
+     **/
     public void close() {
         dbOpenHelper.close();
     }
 
+    /**
+     * Insert weather data into the database
+     **/
     public void insertForecastInfo(ContentValues values) {
         database.insert(DBOpenHelper.TABLE_NAME, null, values);
     }
 
+    /**
+     * Get all the weather data of each hour for the next 36 hours
+     * stored in an arraylist of string arrays.
+     **/
     public ArrayList<String[]> getAllRecords() {
         Cursor cursor = database.query(DBOpenHelper.TABLE_NAME,
                 new String[] {
@@ -63,6 +78,9 @@ public class DatabaseManager {
         return result;
     }
 
+    /**
+     * Clears the whole SQLiteDatabase
+     **/
     public void deleteAll() {
         if (database.isOpen()) {
             database.execSQL("DELETE FROM " + DBOpenHelper.TABLE_NAME);
