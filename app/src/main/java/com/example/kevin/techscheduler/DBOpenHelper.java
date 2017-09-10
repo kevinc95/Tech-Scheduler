@@ -5,9 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by Kevin on 6/22/2017.
+ * To help in creation of our SQLiteDatabase for the weather data.
  */
-
 public class DBOpenHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "hourlyForecast.db";
@@ -34,16 +33,24 @@ public class DBOpenHelper extends SQLiteOpenHelper {
                     COLUMN_NAME_HUMIDITY + " INTEGER," +
                     COLUMN_NAME_FEELS_LIKE + " INTEGER)";
 
-
+    /**
+     * Create an instance of our DBOpenHelper
+     */
     public DBOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    /**
+     * Create our SQLiteDatabase.
+     */
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SQL_CREATE_ENTRIES);
     }
 
+    /**
+     * Update our SQLiteDatabase
+     */
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
