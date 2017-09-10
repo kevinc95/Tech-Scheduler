@@ -20,6 +20,9 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * The activity of the home screen
+ **/
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final String ALL_HOURLY_FORECASTS = "allHourlyForecasts";
@@ -31,6 +34,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     DatabaseManager databaseManager;
     WeatherAPI weatherAPI;
 
+    /**
+     * On create, we initialize listeners for the SCHEDULE MY DAY and WEATHER button.
+     * We also initialize our database manager for the SQLiteDatabase to hold weather data.
+     * We also initialize our weatherAPI so we can retrieve weather data. 
+     **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         weatherAPI = new WeatherAPI(this);
     }
 
+    /**
+     * Everytime activity is started, open the database, clear the database of any previous
+     * weather data, and make weather API call to retrieve new weather data
+     **/
     @Override
     protected void onStart() {
         super.onStart();
@@ -55,12 +67,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         weatherAPI.getInfo();
     }
 
+    /**
+     * Everytime activity stops, close the database.
+     **/
     @Override
     protected void onStop() {
         super.onStop();
         databaseManager.close();
     }
 
+    /**
+     * Saves newly retrieved weather data into database
+     **/
     public void saveInfo(LinkedList<ContentValues> forecasts) {
 
         for (int i = 0; i < forecasts.size(); i++) {
@@ -68,6 +86,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * If a button is clicked, this method checks to see if application
+     * has access to the internet because both buttons in this activity
+     * lead to other activities that require the most up to date weather data.
+     * If there is no internet connection, that means we could update the 
+     * the weather data. If there is internet, we move to the activity 
+     * that corresponds with the button we pressed.
+     **/
     @Override
     public void onClick(View view) {
 
