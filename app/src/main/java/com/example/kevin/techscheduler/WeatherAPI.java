@@ -18,9 +18,8 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 /**
- * Created by Kevin on 6/21/2017.
+ * Class for retrieving weather data from JSON file
  */
-
 public class WeatherAPI implements Response.Listener<String>, Response.ErrorListener {
 
     String url = "http://api.wunderground.com/api/";
@@ -30,6 +29,9 @@ public class WeatherAPI implements Response.Listener<String>, Response.ErrorList
 
     RequestQueue queue;
 
+    /**
+     * Initialize instance of WeatherAPI.
+     */
     public WeatherAPI(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
         queue = Volley.newRequestQueue(mainActivity);
@@ -39,6 +41,10 @@ public class WeatherAPI implements Response.Listener<String>, Response.ErrorList
     public void onErrorResponse(VolleyError error) {
     }
 
+    /**
+     * When data is returned from API call, the data is parsed into a
+     * LinkedList of ContentValues, and saved by mainActivity into the database.
+     */
     @Override
     public void onResponse(String response) {
         try {
@@ -94,12 +100,19 @@ public class WeatherAPI implements Response.Listener<String>, Response.ErrorList
         }
     }
 
+    /**
+     * Request if made to the link
+     */
     public void getInfo() {
         StringRequest stringRequest = new StringRequest(Request.Method.GET,
                 getRequest(), this, this);
         queue.add(stringRequest);
     }
 
+    /**
+     * URL link we are getting data from.
+     * "http://api.wunderground.com/api/7243bb3173e93a80/hourly/q/VA/Blacksburg.json"
+     */
     public String getRequest() {
         return url + key + "/hourly/q/VA/Blacksburg.json";
     }
